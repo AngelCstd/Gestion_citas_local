@@ -27,10 +27,8 @@ public class ClienteVipJpaController implements Serializable {
     }
 
     public ClienteVipJpaController() {
-    emf = Persistence.createEntityManagerFactory("STUDIO_ALONDRA_NAILS_PU");
+        emf = Persistence.createEntityManagerFactory("STUDIO_ALONDRA_NAILS_PU");
     }
-    
-    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -140,5 +138,5 @@ public class ClienteVipJpaController implements Serializable {
             em.close();
         }
     }
-    
+
 }

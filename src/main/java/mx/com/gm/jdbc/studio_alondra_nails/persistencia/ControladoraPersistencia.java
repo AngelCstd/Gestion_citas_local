@@ -15,7 +15,6 @@ public class ControladoraPersistencia {
     PagoJpaController pagoJpa = new PagoJpaController();
     EmpleadoJpaController empleadoJpa = new EmpleadoJpaController();
     ClienteVipJpaController clienteVJpa = new ClienteVipJpaController();
-    CompraVipJpaController compraVJpa = new CompraVipJpaController();
 
     public void crearCliente(Cliente cliente) {
         clienteJpa.create(cliente);
@@ -39,10 +38,6 @@ public class ControladoraPersistencia {
 
     public void crearClienteVip(ClienteVip cliente) {
         clienteVJpa.create(cliente);
-    }
-
-    public void crearCompraVip(CompraVip compravip) {
-        compraVJpa.create(compravip);
     }
 
     public void eliminarCita(int id) {
@@ -93,14 +88,6 @@ public class ControladoraPersistencia {
         }
     }
 
-    public void eliminarCompraVip(int id) {
-        try {
-            compraVJpa.destroy(id);
-        } catch (NonexistentEntityException ex) {
-            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void editarCita(Cita cita) {
         try {
             citaJpa.edit(cita);
@@ -144,14 +131,6 @@ public class ControladoraPersistencia {
     public void editarClienteVip(ClienteVip cliente) {
         try {
             clienteVJpa.edit(cliente);
-        } catch (Exception ex) {
-            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void editarCompraVip(CompraVip compra) {
-        try {
-            compraVJpa.edit(compra);
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -206,27 +185,15 @@ public class ControladoraPersistencia {
         ArrayList<Servicio> arraylista = new ArrayList<Servicio>(lista);
         return arraylista;
     }
-    
+
     public ClienteVip traerClienteVip(int id) {
         return clienteVJpa.findClienteVip(id);
     }
 
     public ArrayList<ClienteVip> traerListaClientesVip() {
-    List<ClienteVip> lista = clienteVJpa.findClienteVipEntities();
-        ArrayList<ClienteVip> arraylista = new ArrayList<ClienteVip> (lista);
+        List<ClienteVip> lista = clienteVJpa.findClienteVipEntities();
+        ArrayList<ClienteVip> arraylista = new ArrayList<ClienteVip>(lista);
         return arraylista;
     }
-
-    public CompraVip traerCompraVip(int id) {
-        return compraVJpa.findCompraVip(id);
-    }
-
-    public ArrayList<CompraVip> traerListaComprasVip() {
-    List<CompraVip> lista = compraVJpa.findCompraVipEntities();
-        ArrayList<CompraVip> arraylista = new ArrayList<CompraVip> (lista);
-        return arraylista;
-    }
-
-    
 
 }

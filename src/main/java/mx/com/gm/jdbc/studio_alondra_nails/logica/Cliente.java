@@ -17,9 +17,6 @@ public class Cliente implements Serializable {
     private double apellido;
     @Column(name="telefono")
     private int telefono;
-    
-//    @OneToOne(mappedBy="cliente")
-//    private ClienteVip clienteVip;
 
     public Cliente() {
     }

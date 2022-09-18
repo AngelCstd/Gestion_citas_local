@@ -11,9 +11,9 @@ public class ClienteVip implements Serializable {
     @Column(name="clientevip_id")
     private int id;
     
-//    @OneToOne
-//    @Column(name="cliente_id")
-//    private Cliente cliente;
+    @OneToOne
+    @JoinColumn(name="cliente_id")
+    private Cliente cliente;
 
     public int getId() {
         return id;
@@ -23,12 +23,12 @@ public class ClienteVip implements Serializable {
         this.id = id;
     }
 
-//    public Cliente getCliente() {
-//        return cliente;
-//    }
-//
-//    public void setCliente(Cliente cliente) {
-//        this.cliente = cliente;
-//    }
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
 
 }
