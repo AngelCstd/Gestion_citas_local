@@ -14,12 +14,19 @@ public class Cliente implements Serializable {
     @Column(name="nombre")
     private String nombre;
     @Column(name="apellido")
-    private double apellido;
+    private String apellido;
     @Column(name="telefono")
     private int telefono;
 
     public Cliente() {
     }
+
+    public Cliente(String nombre, String apellido, int telefono) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+    }
+    
 
     public int getId() {
         return id;
@@ -37,11 +44,11 @@ public class Cliente implements Serializable {
         this.nombre = nombre;
     }
 
-    public double getApellido() {
+    public String getApellido() {
         return apellido;
     }
 
-    public void setApellido(double apellido) {
+    public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 

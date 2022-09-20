@@ -58,6 +58,12 @@ public class ControladoraLogica {
         return controlPersis.traerListaClientes();
     }
 
+    public void clienteNuevo() {
+        crearCliente(new Cliente(JOptionPane.showInputDialog("Nombre"), 
+                JOptionPane.showInputDialog("Apellido"), 
+                Integer.parseInt(JOptionPane.showInputDialog("Telefono"))));
+    }
+
     /*
     
     EMPLEADOS
@@ -81,6 +87,17 @@ public class ControladoraLogica {
 
     public ArrayList<Empleado> traerListaEmpleados() {
         return controlPersis.traerListaEmpleados();
+    }
+
+    public void empleadoNuevo() {
+        String nombre = JOptionPane.showInputDialog("Nombre");
+        String apellido = JOptionPane.showInputDialog("Apellido");
+        if (nombre == null || apellido == null) {
+            JOptionPane.showMessageDialog(null, "Ocurrio un error intentelo mas tarde");
+        }else{
+        crearEmpleado(new Empleado(nombre,apellido));    
+        }
+        
     }
 
     /*
@@ -108,6 +125,12 @@ public class ControladoraLogica {
         return controlPersis.traerListaPagos();
     }
 
+    public void pagoNuevo() {
+        Servicio servicio = (Servicio) JOptionPane.showInputDialog(null, "Selecciona el servicio a usar", "Servicios",
+                JOptionPane.PLAIN_MESSAGE, null, traerListaServicios().toArray(), null);
+        crearPago(new Pago(Double.parseDouble(JOptionPane.showInputDialog("¿Deja un adelanto?")), servicio.getPrecio()));
+    }
+
     /*
     
     SERVICIOS
@@ -133,18 +156,18 @@ public class ControladoraLogica {
         return controlPersis.traerListaServicios();
     }
 
-    public void ServicioNuevo() {
-        crearServicio(new Servicio(JOptionPane.showInputDialog("¿Como se llama el servicio?"), 
-                Double.parseDouble(JOptionPane.showInputDialog("¿Cual es el precio?")), 
+    public void servicioNuevo() {
+        crearServicio(new Servicio(JOptionPane.showInputDialog("¿Como se llama el servicio?"),
+                Double.parseDouble(JOptionPane.showInputDialog("¿Cual es el precio?")),
                 Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos minutos toma el servicio?"))));
-
     }
+
     /*
     
     CLIENTES VIP
     
      */
-    
+
     public void crearClienteVip(ClienteVip cvi) {
         controlPersis.crearClienteVip(cvi);
     }
@@ -164,4 +187,5 @@ public class ControladoraLogica {
     public ArrayList<ClienteVip> traerListaClientesVip() {
         return controlPersis.traerListaClientesVip();
     }
+
 }

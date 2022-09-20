@@ -16,10 +16,17 @@ public class Pago implements Serializable {
     @Column(name="deuda")
     private double deuda;
     @Column(name="pagado")
-    private boolean pagado;
+    private boolean pagado = false;
 
     public Pago() {
     }
+
+    
+    public Pago(double adelantado, double deuda) {
+        this.adelantado = adelantado;
+        this.deuda = deuda;
+    }
+
 
     public int getId() {
         return id;
