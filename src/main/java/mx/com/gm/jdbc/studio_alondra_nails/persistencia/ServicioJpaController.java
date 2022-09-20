@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package mx.com.gm.jdbc.studio_alondra_nails.persistencia;
 
 import java.io.Serializable;
@@ -12,13 +16,16 @@ import javax.persistence.criteria.Root;
 import mx.com.gm.jdbc.studio_alondra_nails.logica.Servicio;
 import mx.com.gm.jdbc.studio_alondra_nails.persistencia.exceptions.NonexistentEntityException;
 
+/**
+ *
+ * @author Angel Castañeda
+ */
 public class ServicioJpaController implements Serializable {
 
     public ServicioJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
-    public ServicioJpaController() {
+        public ServicioJpaController() {
         emf = Persistence.createEntityManagerFactory("STUDIO_ALONDRA_NAILS_PU");
     }
     

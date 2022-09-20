@@ -63,7 +63,7 @@ public class Servicio implements Serializable {
 
     @Override
     public String toString() {
-        return "Servicio:" + servicio + ", precio:" + precio + ", minutos:" + minutos;
+        return servicio;
     }
     
     

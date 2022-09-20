@@ -1,11 +1,19 @@
 package mx.com.gm.jdbc.studio_alondra_nails.igu;
 
+import java.util.ArrayList;
 import javax.swing.*;
 import mx.com.gm.jdbc.studio_alondra_nails.logica.*;
+
 /*
 FALTA EL MOSTRAR LOS DATOS EN LOS PANELES DE LAS CITAS
 
-*/
+
+Servicio servicio = (Servicio)JOptionPane.showInputDialog(null, "Selecciona el servicio a editar", "Servicios",
+                JOptionPane.PLAIN_MESSAGE, null, control.traerListaServicios().toArray(), botonEditarCita);
+        System.out.println(servicio.getId());
+
+METODO PARA LA ELECCION DE UN SERVICIO ETC....
+ */
 public class Inicio extends javax.swing.JFrame {
 
     ControladoraLogica control = new ControladoraLogica();
@@ -13,6 +21,8 @@ public class Inicio extends javax.swing.JFrame {
     public Inicio() {
         initComponents();
         panelNuevaCita.setVisible(false);
+        panelCrearDatos.setVisible(false);
+        panelEditarDatos.setVisible(false);
 
     }
 
@@ -57,7 +67,20 @@ public class Inicio extends javax.swing.JFrame {
         botonCambioPanelEdicion = new javax.swing.JButton();
         botonMostrarFacturaSemanal = new javax.swing.JButton();
         panelNuevaCita = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        botonNuevaCitaInicio = new javax.swing.JButton();
+        panelCrearDatos = new javax.swing.JPanel();
+        botonCrearPago = new javax.swing.JButton();
+        botonCrearCliente = new javax.swing.JButton();
+        botonCrearServicio = new javax.swing.JButton();
+        botonCrearEmpleado = new javax.swing.JButton();
+        crearDatosAInicio = new javax.swing.JButton();
+        panelEditarDatos = new javax.swing.JPanel();
+        crearDatosAInicio1 = new javax.swing.JButton();
+        comboBoxEditar = new javax.swing.JComboBox<>();
+        textField1 = new javax.swing.JTextField();
+        textField2 = new javax.swing.JTextField();
+        textField3 = new javax.swing.JTextField();
+        textField4 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(100, 100));
@@ -601,12 +624,13 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
         gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         getContentPane().add(panelInicio, gridBagConstraints);
 
-        jButton6.setText("InicioBack");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        botonNuevaCitaInicio.setText("Inicio");
+        botonNuevaCitaInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                botonNuevaCitaInicioActionPerformed(evt);
             }
         });
 
@@ -614,60 +638,195 @@ public class Inicio extends javax.swing.JFrame {
         panelNuevaCita.setLayout(panelNuevaCitaLayout);
         panelNuevaCitaLayout.setHorizontalGroup(
             panelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1100, Short.MAX_VALUE)
-            .addGroup(panelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevaCitaLayout.createSequentialGroup()
-                    .addContainerGap(389, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(513, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevaCitaLayout.createSequentialGroup()
+                .addContainerGap(946, Short.MAX_VALUE)
+                .addComponent(botonNuevaCitaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49))
         );
         panelNuevaCitaLayout.setVerticalGroup(
             panelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
-            .addGroup(panelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevaCitaLayout.createSequentialGroup()
-                    .addContainerGap(246, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(294, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevaCitaLayout.createSequentialGroup()
+                .addContainerGap(540, Short.MAX_VALUE)
+                .addComponent(botonNuevaCitaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 0;
         gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
         getContentPane().add(panelNuevaCita, gridBagConstraints);
+
+        panelCrearDatos.setPreferredSize(new java.awt.Dimension(1100, 610));
+
+        botonCrearPago.setText("Crear Pago");
+        botonCrearPago.setMinimumSize(new java.awt.Dimension(150, 220));
+        botonCrearPago.setPreferredSize(new java.awt.Dimension(150, 220));
+        botonCrearPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearPagoActionPerformed(evt);
+            }
+        });
+
+        botonCrearCliente.setText("Crear Cliente");
+        botonCrearCliente.setMinimumSize(new java.awt.Dimension(150, 220));
+        botonCrearCliente.setPreferredSize(new java.awt.Dimension(150, 220));
+
+        botonCrearServicio.setText("Crear Servicio");
+        botonCrearServicio.setMinimumSize(new java.awt.Dimension(150, 220));
+        botonCrearServicio.setPreferredSize(new java.awt.Dimension(150, 220));
+        botonCrearServicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCrearServicioActionPerformed(evt);
+            }
+        });
+
+        botonCrearEmpleado.setText("Crear Empleado");
+        botonCrearEmpleado.setMinimumSize(new java.awt.Dimension(150, 220));
+        botonCrearEmpleado.setPreferredSize(new java.awt.Dimension(150, 220));
+
+        crearDatosAInicio.setText("Inicio");
+        crearDatosAInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearDatosAInicioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCrearDatosLayout = new javax.swing.GroupLayout(panelCrearDatos);
+        panelCrearDatos.setLayout(panelCrearDatosLayout);
+        panelCrearDatosLayout.setHorizontalGroup(
+            panelCrearDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCrearDatosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelCrearDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelCrearDatosLayout.createSequentialGroup()
+                        .addComponent(botonCrearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
+                        .addComponent(botonCrearEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelCrearDatosLayout.createSequentialGroup()
+                        .addComponent(botonCrearPago, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
+                        .addComponent(botonCrearServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 382, Short.MAX_VALUE)
+                .addComponent(crearDatosAInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+        );
+        panelCrearDatosLayout.setVerticalGroup(
+            panelCrearDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCrearDatosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelCrearDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(botonCrearCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonCrearEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 252, Short.MAX_VALUE)
+                .addGroup(panelCrearDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCrearDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botonCrearPago, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonCrearServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(crearDatosAInicio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(panelCrearDatos, gridBagConstraints);
+
+        panelEditarDatos.setPreferredSize(new java.awt.Dimension(1100, 610));
+
+        crearDatosAInicio1.setText("Inicio");
+        crearDatosAInicio1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearDatosAInicio1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelEditarDatosLayout = new javax.swing.GroupLayout(panelEditarDatos);
+        panelEditarDatos.setLayout(panelEditarDatosLayout);
+        panelEditarDatosLayout.setHorizontalGroup(
+            panelEditarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEditarDatosLayout.createSequentialGroup()
+                .addGroup(panelEditarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelEditarDatosLayout.createSequentialGroup()
+                        .addGap(964, 964, 964)
+                        .addComponent(crearDatosAInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelEditarDatosLayout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(panelEditarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboBoxEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textField1)
+                            .addComponent(textField2)
+                            .addComponent(textField3)
+                            .addComponent(textField4, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE))))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+        panelEditarDatosLayout.setVerticalGroup(
+            panelEditarDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEditarDatosLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(comboBoxEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addComponent(textField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(textField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(textField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addComponent(textField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(crearDatosAInicio1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(panelEditarDatos, gridBagConstraints);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cambioPanel(int i) {
+        panelEditarDatos.setVisible(false);
+        panelCrearDatos.setVisible(false);
+        panelInicio.setVisible(false);
+        panelNuevaCita.setVisible(false);
+        switch(i){
+            case 0: panelInicio.setVisible(true);
+            break;
+            case 1: panelNuevaCita.setVisible(true);
+            break;
+            case 2: panelCrearDatos.setVisible(true);
+            break;
+            case 3: panelEditarDatos.setVisible(true);
+            break;
+        }
+    }
 
     private void nuevaCitaCambioPanelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaCitaCambioPanelActionPerformed
         //Cambia de panel para la creacion de una nueva cita
         /*
         FALTAN LOS COMPONENTES PARA CREAR LA NUEVA CITA
          */
-        panelInicio.setVisible(false);
-        panelNuevaCita.setVisible(true);
-
-
+        cambioPanel(1);
     }//GEN-LAST:event_nuevaCitaCambioPanelActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void botonNuevaCitaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaCitaInicioActionPerformed
         //Cambia de panel para volver al inicio
-        panelNuevaCita.setVisible(false);
-        panelInicio.setVisible(true);
-
-
-    }//GEN-LAST:event_jButton6ActionPerformed
+        cambioPanel(0);
+    }//GEN-LAST:event_botonNuevaCitaInicioActionPerformed
 
     private void botonCambioPanelCreacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambioPanelCreacionActionPerformed
         //Nos cambia de panel para la creacion de cualquier servicio o cliente en la base de datos
-        try {
-            control.ServicioNuevo();
-            JOptionPane.showMessageDialog(this, "Se ha guardado con exito");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Ha ocurrido un error, intentelo mas tarde");
-        }
-
+        cambioPanel(2);
     }//GEN-LAST:event_botonCambioPanelCreacionActionPerformed
 
     private void botonEliminarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarCitaActionPerformed
@@ -680,13 +839,27 @@ public class Inicio extends javax.swing.JFrame {
         //Nos cambia a un panel para editar cualquier cosa de la base de datos
         /*
         FALTA
-        EL CAMBIO DE PANEL
         LA COLOCACION DE COMPONENTES
         COLOCAR LOS CAMBIOS DE CADA UNO
-        */
-        String servicio = (JOptionPane.showInputDialog(null, "Selecciona el servicio a editar", "Servicios",
-                JOptionPane.PLAIN_MESSAGE, null, control.traerListaServicios().toArray(), botonEditarCita)).toString();
-        System.out.println(servicio);
+         */
+        ArrayList list = null;
+        String[] opciones = {"Cliente", "Empleado", "Pago", "Servicio"};
+        int resultado = JOptionPane.showOptionDialog(null, "¿Que quieres editar?", "Elige...", 0, JOptionPane.QUESTION_MESSAGE, null, opciones, EXIT_ON_CLOSE);
+        switch (resultado) {
+            case 0 ->
+                list = new ArrayList<Cliente>(control.traerListaClientes());
+            case 1 ->
+                list = new ArrayList<Empleado>(control.traerListaEmpleados());
+            case 2 ->
+                list = new ArrayList<Pago>(control.traerListaPagos());
+            case 3 ->
+                list = new ArrayList<Servicio>(control.traerListaServicios());
+        }
+        for (Object objetosLista : list) {
+            comboBoxEditar.addItem(objetosLista.toString());
+        }
+    cambioPanel(3);
+
     }//GEN-LAST:event_botonCambioPanelEdicionActionPerformed
 
     private void botonEditarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEditarCitaActionPerformed
@@ -696,8 +869,8 @@ public class Inicio extends javax.swing.JFrame {
         AGREGAR COMPONENTES
         COLOCAR LA SELECCION DE LA CITA
         COLOCAR LA EDICION
-        */
-        
+         */
+
         String cita = (JOptionPane.showInputDialog(null, "Selecciona la cita a editar", "Citas",
                 JOptionPane.PLAIN_MESSAGE, null, control.traerListaCitas().toArray(), botonEditarCita)).toString();
         System.out.println(cita);
@@ -709,7 +882,7 @@ public class Inicio extends javax.swing.JFrame {
         /*
         FALTA 
         LA CREACION DE LA FACTURA Y LA OBTENCION DE LOS DATOS
-        */
+         */
     }//GEN-LAST:event_botonMostrarFacturaSemanalActionPerformed
 
     private void botonMostrarFacturaMensualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMostrarFacturaMensualActionPerformed
@@ -717,7 +890,7 @@ public class Inicio extends javax.swing.JFrame {
         /*
         FALTA
         LA CREACION DE LA FACTURA Y LA OBTENCION DE LOS DATOS
-        */
+         */
     }//GEN-LAST:event_botonMostrarFacturaMensualActionPerformed
 
     private void botonCambioEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCambioEmpleadoActionPerformed
@@ -726,7 +899,7 @@ public class Inicio extends javax.swing.JFrame {
         FALTA LA OBTENCION DE LOS DATOS Y EL ORDEN DE ESTOS PARA COLOCARLOS
         EL CAMBIO DE UN EMPLEADO A OTRO
         LA ELECCION DEL EMPLEADO QUE SE QUIERA VER
-        */
+         */
     }//GEN-LAST:event_botonCambioEmpleadoActionPerformed
 
     private void botonVipActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVipActionPerformed
@@ -734,10 +907,27 @@ public class Inicio extends javax.swing.JFrame {
         /*
         FALTA LA CREACION DONDE SE DA A ESCOGER SI CREAR O MOSTRAR LOS DATOS DEL CLIENTE
         LA OBTENCION DE LOS DATOS DEL CLIENTE
-        */
-        
-        
+         */
+
+
     }//GEN-LAST:event_botonVipActionPerformed
+
+    private void botonCrearPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearPagoActionPerformed
+        //Crear Cliente
+
+    }//GEN-LAST:event_botonCrearPagoActionPerformed
+
+    private void crearDatosAInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearDatosAInicioActionPerformed
+        cambioPanel(0);
+    }//GEN-LAST:event_crearDatosAInicioActionPerformed
+
+    private void botonCrearServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearServicioActionPerformed
+        control.ServicioNuevo();
+    }//GEN-LAST:event_botonCrearServicioActionPerformed
+
+    private void crearDatosAInicio1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearDatosAInicio1ActionPerformed
+        cambioPanel(0);
+    }//GEN-LAST:event_crearDatosAInicio1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -779,12 +969,19 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton botonCambioEmpleado;
     private javax.swing.JButton botonCambioPanelCreacion;
     private javax.swing.JButton botonCambioPanelEdicion;
+    private javax.swing.JButton botonCrearCliente;
+    private javax.swing.JButton botonCrearEmpleado;
+    private javax.swing.JButton botonCrearPago;
+    private javax.swing.JButton botonCrearServicio;
     private javax.swing.JButton botonEditarCita;
     private javax.swing.JButton botonEliminarCita;
     private javax.swing.JButton botonMostrarFacturaMensual;
     private javax.swing.JButton botonMostrarFacturaSemanal;
+    private javax.swing.JButton botonNuevaCitaInicio;
     private javax.swing.JButton botonVip;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JComboBox<String> comboBoxEditar;
+    private javax.swing.JButton crearDatosAInicio;
+    private javax.swing.JButton crearDatosAInicio1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label10;
@@ -804,7 +1001,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel labelSabado;
     private javax.swing.JLabel labelViernes;
     private javax.swing.JButton nuevaCitaCambioPanel;
+    private javax.swing.JPanel panelCrearDatos;
     private javax.swing.JPanel panelDomingo;
+    private javax.swing.JPanel panelEditarDatos;
     private javax.swing.JPanel panelInicio;
     private javax.swing.JPanel panelJueves;
     private javax.swing.JPanel panelLunes;
@@ -813,5 +1012,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel panelNuevaCita;
     private javax.swing.JPanel panelSabado;
     private javax.swing.JPanel panelViernes;
+    private javax.swing.JTextField textField1;
+    private javax.swing.JTextField textField2;
+    private javax.swing.JTextField textField3;
+    private javax.swing.JTextField textField4;
     // End of variables declaration//GEN-END:variables
 }

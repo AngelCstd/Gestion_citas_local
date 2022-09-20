@@ -2,19 +2,22 @@ package mx.com.gm.jdbc.studio_alondra_nails.persistencia;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.*;
-import javax.persistence.criteria.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
+import javax.persistence.EntityNotFoundException;
+import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import mx.com.gm.jdbc.studio_alondra_nails.logica.Cliente;
 import mx.com.gm.jdbc.studio_alondra_nails.persistencia.exceptions.NonexistentEntityException;
-
 
 public class ClienteJpaController implements Serializable {
 
     public ClienteJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
-    public ClienteJpaController() {
+        public ClienteJpaController() {
         emf = Persistence.createEntityManagerFactory("STUDIO_ALONDRA_NAILS_PU");
     }
     private EntityManagerFactory emf = null;
@@ -126,5 +129,5 @@ public class ClienteJpaController implements Serializable {
             em.close();
         }
     }
-
+    
 }

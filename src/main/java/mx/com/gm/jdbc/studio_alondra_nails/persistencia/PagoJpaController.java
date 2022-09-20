@@ -25,10 +25,10 @@ public class PagoJpaController implements Serializable {
     public PagoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-
-    public PagoJpaController() {
+        public PagoJpaController() {
         emf = Persistence.createEntityManagerFactory("STUDIO_ALONDRA_NAILS_PU");
     }
+    
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
@@ -138,5 +138,5 @@ public class PagoJpaController implements Serializable {
             em.close();
         }
     }
-
+    
 }

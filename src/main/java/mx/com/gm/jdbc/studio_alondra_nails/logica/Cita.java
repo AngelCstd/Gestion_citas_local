@@ -21,7 +21,7 @@ public class Cita implements Serializable {
     @ManyToOne
     @JoinColumn(name="cliente_id")
     private Cliente cliente;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name="pago_id")
     private Pago pago;
     @Temporal(TemporalType.DATE)

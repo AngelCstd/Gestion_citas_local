@@ -134,11 +134,9 @@ public class ControladoraLogica {
     }
 
     public void ServicioNuevo() {
-
-        String nombre = JOptionPane.showInputDialog("¿Como se llama el servicio?");
-        double precio = Double.parseDouble(JOptionPane.showInputDialog("¿Cual es el precio?"));
-        int minutos = Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos minutos toma el servicio?"));
-        crearServicio(new Servicio(nombre, precio, minutos));
+        crearServicio(new Servicio(JOptionPane.showInputDialog("¿Como se llama el servicio?"), 
+                Double.parseDouble(JOptionPane.showInputDialog("¿Cual es el precio?")), 
+                Integer.parseInt(JOptionPane.showInputDialog("¿Cuantos minutos toma el servicio?"))));
 
     }
     /*

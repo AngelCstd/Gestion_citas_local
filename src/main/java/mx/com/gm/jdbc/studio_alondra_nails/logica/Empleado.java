@@ -44,6 +44,12 @@ public class Empleado implements Serializable {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
+
+    @Override
+    public String toString() {
+        return nombre + " " + apellido;
+    }
+    
     
 
 }

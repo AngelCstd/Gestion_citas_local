@@ -52,5 +52,10 @@ public class Pago implements Serializable {
     public void setPagado(boolean pagado) {
         this.pagado = pagado;
     }
+
+    @Override
+    public String toString() {
+        return id + ".- " + deuda;
+    }
     
 }
