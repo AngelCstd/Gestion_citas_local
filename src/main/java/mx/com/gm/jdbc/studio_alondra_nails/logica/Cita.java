@@ -24,13 +24,20 @@ public class Cita implements Serializable {
     @OneToOne
     @JoinColumn(name="pago_id")
     private Pago pago;
-    @Temporal(TemporalType.DATE)
-    private Date dia_cita;
     @Temporal(TemporalType.TIMESTAMP)
-    private Date hora_cita;
+    private Date dia_de_cita;
 
     public Cita() {
     }
+
+    public Cita(Empleado empleado, Servicio servicio, Cliente cliente, Pago pago, Date dia_de_cita) {
+        this.empleado = empleado;
+        this.servicio = servicio;
+        this.cliente = cliente;
+        this.pago = pago;
+        this.dia_de_cita = dia_de_cita;
+    }
+    
 
     public int getId() {
         return id;
@@ -72,20 +79,12 @@ public class Cita implements Serializable {
         this.pago = pago;
     }
 
-    public Date getDia_cita() {
-        return dia_cita;
+    public Date getDia_de_cita() {
+        return dia_de_cita;
     }
 
-    public void setDia_cita(Date dia_cita) {
-        this.dia_cita = dia_cita;
-    }
-
-    public Date getHora_cita() {
-        return hora_cita;
-    }
-
-    public void setHora_cita(Date hora_cita) {
-        this.hora_cita = hora_cita;
+    public void setDia_de_cita(Date dia_de_cita) {
+        this.dia_de_cita = dia_de_cita;
     }
     
 

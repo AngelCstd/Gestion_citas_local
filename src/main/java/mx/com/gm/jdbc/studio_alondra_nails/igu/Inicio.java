@@ -20,7 +20,6 @@ public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
-        panelNuevaCita.setVisible(false);
         panelCrearDatos.setVisible(false);
         panelEditarDatos.setVisible(false);
 
@@ -66,8 +65,6 @@ public class Inicio extends javax.swing.JFrame {
         inicioACrear = new javax.swing.JButton();
         inicioAEditar = new javax.swing.JButton();
         botonMostrarFacturaSemanal = new javax.swing.JButton();
-        panelNuevaCita = new javax.swing.JPanel();
-        botonNuevaCitaInicio = new javax.swing.JButton();
         panelCrearDatos = new javax.swing.JPanel();
         botonCrearPago = new javax.swing.JButton();
         botonCrearCliente = new javax.swing.JButton();
@@ -627,38 +624,6 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(panelInicio, gridBagConstraints);
 
-        botonNuevaCitaInicio.setText("Inicio");
-        botonNuevaCitaInicio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonNuevaCitaInicioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelNuevaCitaLayout = new javax.swing.GroupLayout(panelNuevaCita);
-        panelNuevaCita.setLayout(panelNuevaCitaLayout);
-        panelNuevaCitaLayout.setHorizontalGroup(
-            panelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevaCitaLayout.createSequentialGroup()
-                .addContainerGap(946, Short.MAX_VALUE)
-                .addComponent(botonNuevaCitaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
-        );
-        panelNuevaCitaLayout.setVerticalGroup(
-            panelNuevaCitaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelNuevaCitaLayout.createSequentialGroup()
-                .addContainerGap(540, Short.MAX_VALUE)
-                .addComponent(botonNuevaCitaInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
-        );
-
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-        gridBagConstraints.weightx = 1.0;
-        gridBagConstraints.weighty = 1.0;
-        getContentPane().add(panelNuevaCita, gridBagConstraints);
-
         panelCrearDatos.setPreferredSize(new java.awt.Dimension(1100, 610));
 
         botonCrearPago.setText("Crear Pago");
@@ -808,28 +773,39 @@ public class Inicio extends javax.swing.JFrame {
         panelEditarDatos.setVisible(false);
         panelCrearDatos.setVisible(false);
         panelInicio.setVisible(false);
-        panelNuevaCita.setVisible(false);
         switch(i){
             case 0 -> panelInicio.setVisible(true);
-            case 1 -> panelNuevaCita.setVisible(true);
-            case 2 -> panelCrearDatos.setVisible(true);
-            case 3 -> panelEditarDatos.setVisible(true);
+            case 1 -> panelCrearDatos.setVisible(true);
+            case 2 -> panelEditarDatos.setVisible(true);
         }
     }
 //Cambia de panel Inicio a Nueva Cita
     private void inicioANuevaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioANuevaCitaActionPerformed
-        /*
-        FALTAN LOS COMPONENTES PARA CREAR LA NUEVA CITA
-         */
-        cambioPanel(1);
+       int seleccion = JOptionPane.showConfirmDialog(null, "¿Es un cliente nuevo?","Selecciona", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null);
+        if (seleccion == JOptionPane.YES_OPTION) {
+            try{
+                control.clienteNuevo();
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(null, "Ocurrio un accidente intentelo mas tarde");
+                
+            }
+        }else{
+        }
+        Cliente cliente = (Cliente)JOptionPane.showInputDialog(null, "Selecciona el Cliente", "Clientes",
+                JOptionPane.PLAIN_MESSAGE, null, control.traerListaClientes().toArray(), null);
+        Empleado empleaado = (Empleado)JOptionPane.showInputDialog(null, "Selecciona el Empleado", "Empleado",
+                JOptionPane.PLAIN_MESSAGE, null, control.traerListaEmpleados().toArray(), null);
+        Servicio servicio = (Servicio) JOptionPane.showInputDialog(null, "Selecciona el servicio a usar", "Servicios",
+                JOptionPane.PLAIN_MESSAGE, null, control.traerListaServicios().toArray(), null);
+        control.crearPago(new Pago(Double.parseDouble(JOptionPane.showInputDialog("¿Deja un adelanto?")), servicio.getPrecio()));
+        control.pagoNuevo();
+        control.crearCita(new Cita());
     }//GEN-LAST:event_inicioANuevaCitaActionPerformed
-//Cambia de panel Nueva Cita a Inicio
-    private void botonNuevaCitaInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevaCitaInicioActionPerformed
-        cambioPanel(0);
-    }//GEN-LAST:event_botonNuevaCitaInicioActionPerformed
+
 //Nos cambia de panel Inicio a Creacion
+    //listo
     private void inicioACrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioACrearActionPerformed
-        cambioPanel(2);
+        cambioPanel(1);
     }//GEN-LAST:event_inicioACrearActionPerformed
 //Nos muestra una lista que hace que eliminemos alguna cita
     private void botonEliminarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarCitaActionPerformed
@@ -862,7 +838,7 @@ public class Inicio extends javax.swing.JFrame {
         for (Object objetosLista : list) {
             comboBoxEditar.addItem(objetosLista.toString());
         }
-    cambioPanel(3);
+    cambioPanel(2);
 
     }//GEN-LAST:event_inicioAEditarActionPerformed
 //Nos cambia de Inicio a Editar Cita
@@ -910,6 +886,7 @@ public class Inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botonVipActionPerformed
 //Crea un pago nuevo
+    //listo
     private void botonCrearPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearPagoActionPerformed
         try{
             control.pagoNuevo();
@@ -920,10 +897,12 @@ public class Inicio extends javax.swing.JFrame {
 
     }//GEN-LAST:event_botonCrearPagoActionPerformed
 //Nos cambia de panel Crear a Inicio
+    //listo
     private void crearDatosAInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearDatosAInicioActionPerformed
         cambioPanel(0);
     }//GEN-LAST:event_crearDatosAInicioActionPerformed
 //Crea un servicio nuevo
+    //listo
     private void botonCrearServicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearServicioActionPerformed
         try{
             control.servicioNuevo();
@@ -933,10 +912,12 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCrearServicioActionPerformed
 //Nos cambia de panel Editar a Inicio
+    //listo
     private void editarDatosAInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarDatosAInicioActionPerformed
         cambioPanel(0);
     }//GEN-LAST:event_editarDatosAInicioActionPerformed
 //Crea un cliente nuevo
+    //listo
     private void botonCrearClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearClienteActionPerformed
         try{
             control.clienteNuevo();
@@ -946,6 +927,7 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCrearClienteActionPerformed
 //Crea un empleado nuevo
+    //listo
     private void botonCrearEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCrearEmpleadoActionPerformed
         try{
             control.empleadoNuevo();
@@ -999,7 +981,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton botonCrearServicio;
     private javax.swing.JButton botonEliminarCita;
     private javax.swing.JButton botonMostrarFacturaSemanal;
-    private javax.swing.JButton botonNuevaCitaInicio;
     private javax.swing.JButton botonVip;
     private javax.swing.JComboBox<String> comboBoxEditar;
     private javax.swing.JButton crearDatosAInicio;
@@ -1034,7 +1015,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel panelLunes;
     private javax.swing.JPanel panelMartes;
     private javax.swing.JPanel panelMiercoles;
-    private javax.swing.JPanel panelNuevaCita;
     private javax.swing.JPanel panelSabado;
     private javax.swing.JPanel panelViernes;
     private javax.swing.JTextField textField1;
