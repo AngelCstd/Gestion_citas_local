@@ -16,12 +16,12 @@ public class Cliente implements Serializable {
     @Column(name="apellido")
     private String apellido;
     @Column(name="telefono")
-    private int telefono;
+    private long telefono;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String apellido, int telefono) {
+    public Cliente(String nombre, String apellido, long telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -52,11 +52,11 @@ public class Cliente implements Serializable {
         this.apellido = apellido;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 

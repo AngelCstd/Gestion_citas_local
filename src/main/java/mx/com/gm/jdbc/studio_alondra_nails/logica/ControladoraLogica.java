@@ -61,7 +61,7 @@ public class ControladoraLogica {
     public void clienteNuevo() {
         crearCliente(new Cliente(JOptionPane.showInputDialog("Nombre"), 
                 JOptionPane.showInputDialog("Apellido"), 
-                Integer.parseInt(JOptionPane.showInputDialog("Telefono"))));
+                Long.parseLong(JOptionPane.showInputDialog("Telefono"))));
     }
 
     /*

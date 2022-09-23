@@ -1,6 +1,8 @@
 package mx.com.gm.jdbc.studio_alondra_nails.igu;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import javax.swing.*;
 import mx.com.gm.jdbc.studio_alondra_nails.logica.*;
 
@@ -22,6 +24,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         panelCrearDatos.setVisible(false);
         panelEditarDatos.setVisible(false);
+        panelCitas.setVisible(false);
 
     }
 
@@ -78,6 +81,24 @@ public class Inicio extends javax.swing.JFrame {
         textField2 = new javax.swing.JTextField();
         textField3 = new javax.swing.JTextField();
         textField4 = new javax.swing.JTextField();
+        panelCitas = new javax.swing.JPanel();
+        jdcFecha = new com.toedter.calendar.JDateChooser();
+        jcbServicios = new javax.swing.JComboBox<>();
+        jcbCliente = new javax.swing.JComboBox<>();
+        jcbEmpleado = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jtfAdelantado = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jtfTelefono = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jcbHora = new javax.swing.JComboBox<>();
+        jcbMinuto = new javax.swing.JComboBox<>();
+        buscarClientebotn = new javax.swing.JButton();
+        GuardarCitabtn = new javax.swing.JButton();
+        botonCitasAInicio = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(100, 100));
@@ -766,6 +787,162 @@ public class Inicio extends javax.swing.JFrame {
         gridBagConstraints.weighty = 1.0;
         getContentPane().add(panelEditarDatos, gridBagConstraints);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Adelantado");
+
+        jtfAdelantado.setText("0");
+        jtfAdelantado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfAdelantadoActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("CITAS");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Servicio");
+
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel5.setText("Cliente");
+
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel6.setText("Empleado");
+
+        jtfTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfTelefonoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel7.setText("Telefono");
+
+        jcbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10", "11", "12", "13", "14", "15", "16", "17", "18", "19" }));
+
+        jcbMinuto.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "00", "15", "30", "45" }));
+
+        buscarClientebotn.setText("Buscar");
+        buscarClientebotn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarClientebotnActionPerformed(evt);
+            }
+        });
+
+        GuardarCitabtn.setText("Guardar cita");
+        GuardarCitabtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarCitabtnActionPerformed(evt);
+            }
+        });
+
+        botonCitasAInicio.setText("Inicio");
+        botonCitasAInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCitasAInicioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelCitasLayout = new javax.swing.GroupLayout(panelCitas);
+        panelCitas.setLayout(panelCitasLayout);
+        panelCitasLayout.setHorizontalGroup(
+            panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCitasLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelCitasLayout.createSequentialGroup()
+                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jcbServicios, 0, 243, Short.MAX_VALUE)
+                                        .addComponent(jcbEmpleado, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jcbCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jtfAdelantado))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(panelCitasLayout.createSequentialGroup()
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(jtfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)))
+                            .addGroup(panelCitasLayout.createSequentialGroup()
+                                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(panelCitasLayout.createSequentialGroup()
+                                        .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jcbMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 202, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(buscarClientebotn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(440, 440, 440))
+                    .addGroup(panelCitasLayout.createSequentialGroup()
+                        .addComponent(GuardarCitabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botonCitasAInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42))))
+            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCitasLayout.createSequentialGroup()
+                    .addGap(186, 186, 186)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 534, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(380, Short.MAX_VALUE)))
+        );
+        panelCitasLayout.setVerticalGroup(
+            panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCitasLayout.createSequentialGroup()
+                .addGap(121, 121, 121)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jdcFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jcbMinuto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jcbEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buscarClientebotn))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcbServicios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jtfAdelantado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(GuardarCitabtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonCitasAInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(76, Short.MAX_VALUE))
+            .addGroup(panelCitasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelCitasLayout.createSequentialGroup()
+                    .addGap(33, 33, 33)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(519, Short.MAX_VALUE)))
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        getContentPane().add(panelCitas, gridBagConstraints);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 //Este metodo nos ayuda a facilitar el cambio de paneles
@@ -773,33 +950,49 @@ public class Inicio extends javax.swing.JFrame {
         panelEditarDatos.setVisible(false);
         panelCrearDatos.setVisible(false);
         panelInicio.setVisible(false);
+        panelCitas.setVisible(false);
         switch(i){
             case 0 -> panelInicio.setVisible(true);
             case 1 -> panelCrearDatos.setVisible(true);
             case 2 -> panelEditarDatos.setVisible(true);
+            case 3 -> panelCitas.setVisible(true);
         }
     }
 //Cambia de panel Inicio a Nueva Cita
     private void inicioANuevaCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioANuevaCitaActionPerformed
-       int seleccion = JOptionPane.showConfirmDialog(null, "¿Es un cliente nuevo?","Selecciona", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null);
-        if (seleccion == JOptionPane.YES_OPTION) {
-            try{
-                control.clienteNuevo();
-            }catch(Exception ex){
-                JOptionPane.showMessageDialog(null, "Ocurrio un accidente intentelo mas tarde");
-                
-            }
-        }else{
-        }
-        Cliente cliente = (Cliente)JOptionPane.showInputDialog(null, "Selecciona el Cliente", "Clientes",
-                JOptionPane.PLAIN_MESSAGE, null, control.traerListaClientes().toArray(), null);
-        Empleado empleaado = (Empleado)JOptionPane.showInputDialog(null, "Selecciona el Empleado", "Empleado",
-                JOptionPane.PLAIN_MESSAGE, null, control.traerListaEmpleados().toArray(), null);
-        Servicio servicio = (Servicio) JOptionPane.showInputDialog(null, "Selecciona el servicio a usar", "Servicios",
-                JOptionPane.PLAIN_MESSAGE, null, control.traerListaServicios().toArray(), null);
-        control.crearPago(new Pago(Double.parseDouble(JOptionPane.showInputDialog("¿Deja un adelanto?")), servicio.getPrecio()));
-        control.pagoNuevo();
-        control.crearCita(new Cita());
+//       int seleccion = JOptionPane.showConfirmDialog(null, "¿Es un cliente nuevo?","Selecciona", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE, null);
+//        if (seleccion == JOptionPane.YES_OPTION) {
+//            try{
+//                control.clienteNuevo();
+//            }catch(Exception ex){
+//                JOptionPane.showMessageDialog(null, "Ocurrio un accidente intentelo mas tarde");
+//                
+//            }
+//        }else{
+//        }
+//        Cliente cliente = (Cliente)JOptionPane.showInputDialog(null, "Selecciona el Cliente", "Clientes",
+//                JOptionPane.PLAIN_MESSAGE, null, control.traerListaClientes().toArray(), null);
+//        Empleado empleaado = (Empleado)JOptionPane.showInputDialog(null, "Selecciona el Empleado", "Empleado",
+//                JOptionPane.PLAIN_MESSAGE, null, control.traerListaEmpleados().toArray(), null);
+//        Servicio servicio = (Servicio) JOptionPane.showInputDialog(null, "Selecciona el servicio a usar", "Servicios",
+//                JOptionPane.PLAIN_MESSAGE, null, control.traerListaServicios().toArray(), null);
+//        control.crearPago(new Pago(Double.parseDouble(JOptionPane.showInputDialog("¿Deja un adelanto?")), servicio.getPrecio()));
+//        control.pagoNuevo();
+//        control.crearCita(new Cita());
+    cambioPanel(3);
+    for(Empleado listE : control.traerListaEmpleados()){
+        jcbEmpleado.addItem(listE.toString());
+    }
+    for(Cliente listC : control.traerListaClientes()){
+        jcbCliente.addItem(listC.toString());
+    }
+    for(Servicio listS : control.traerListaServicios()){
+        jcbServicios.addItem(listS.toString());
+    }
+
+
+        
+        
     }//GEN-LAST:event_inicioANuevaCitaActionPerformed
 
 //Nos cambia de panel Inicio a Creacion
@@ -936,6 +1129,34 @@ public class Inicio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botonCrearEmpleadoActionPerformed
 
+    private void jtfAdelantadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfAdelantadoActionPerformed
+
+    }//GEN-LAST:event_jtfAdelantadoActionPerformed
+
+    private void jtfTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfTelefonoActionPerformed
+//Este boton nos ayuda a buscar un cliente en la base de datos mediante su telefono
+    private void buscarClientebotnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarClientebotnActionPerformed
+
+    }//GEN-LAST:event_buscarClientebotnActionPerformed
+
+    private void GuardarCitabtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarCitabtnActionPerformed
+//        int año = jdcFecha.getCalendar().get(Calendar.YEAR);
+//        int mes = jdcFecha.getCalendar().get(Calendar.MONTH);
+//        int dia = jdcFecha.getCalendar().get(Calendar.DAY_OF_MONTH);
+        Servicio servicio = (Servicio)jcbServicios.getSelectedItem();
+        Pago pago = new Pago(Double.parseDouble(jtfAdelantado.getText()), servicio.getPrecio());
+         Empleado empleado = (Empleado)jcbEmpleado.getSelectedItem();
+        Cliente cliente = (Cliente)jcbCliente.getSelectedItem();
+    
+        control.crearCita(new Cita(empleado, servicio, cliente, pago, new Date()));
+    }//GEN-LAST:event_GuardarCitabtnActionPerformed
+
+    private void botonCitasAInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCitasAInicioActionPerformed
+cambioPanel(0);
+    }//GEN-LAST:event_botonCitasAInicioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -973,7 +1194,9 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton GuardarCitabtn;
     private javax.swing.JButton botonCambioEmpleado;
+    private javax.swing.JButton botonCitasAInicio;
     private javax.swing.JButton botonCobrar;
     private javax.swing.JButton botonCrearCliente;
     private javax.swing.JButton botonCrearEmpleado;
@@ -982,6 +1205,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton botonEliminarCita;
     private javax.swing.JButton botonMostrarFacturaSemanal;
     private javax.swing.JButton botonVip;
+    private javax.swing.JButton buscarClientebotn;
     private javax.swing.JComboBox<String> comboBoxEditar;
     private javax.swing.JButton crearDatosAInicio;
     private javax.swing.JButton editarDatosAInicio;
@@ -990,6 +1214,20 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton inicioAEditarCita;
     private javax.swing.JButton inicioANuevaCita;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JComboBox<String> jcbCliente;
+    private javax.swing.JComboBox<String> jcbEmpleado;
+    private javax.swing.JComboBox<String> jcbHora;
+    private javax.swing.JComboBox<String> jcbMinuto;
+    private javax.swing.JComboBox<String> jcbServicios;
+    private com.toedter.calendar.JDateChooser jdcFecha;
+    private javax.swing.JTextField jtfAdelantado;
+    private javax.swing.JTextField jtfTelefono;
     private javax.swing.JLabel label1;
     private javax.swing.JLabel label10;
     private javax.swing.JLabel label11;
@@ -1007,6 +1245,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel labelMiercoles;
     private javax.swing.JLabel labelSabado;
     private javax.swing.JLabel labelViernes;
+    private javax.swing.JPanel panelCitas;
     private javax.swing.JPanel panelCrearDatos;
     private javax.swing.JPanel panelDomingo;
     private javax.swing.JPanel panelEditarDatos;
