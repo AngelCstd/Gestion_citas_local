@@ -981,13 +981,13 @@ public class Inicio extends javax.swing.JFrame {
 //        control.crearCita(new Cita());
     cambioPanel(3);
     for(Empleado listE : control.traerListaEmpleados()){
-        jcbEmpleado.addItem(listE.toString());
+        jcbEmpleado.addItem(listE);
     }
     for(Cliente listC : control.traerListaClientes()){
-        jcbCliente.addItem(listC.toString());
+        jcbCliente.addItem(listC);
     }
     for(Servicio listS : control.traerListaServicios()){
-        jcbServicios.addItem(listS.toString());
+        jcbServicios.addItem(listS);
     }
 
 
@@ -1220,11 +1220,11 @@ cambioPanel(0);
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JComboBox<String> jcbCliente;
-    private javax.swing.JComboBox<String> jcbEmpleado;
+    private javax.swing.JComboBox<Cliente> jcbCliente;
+    private javax.swing.JComboBox<Empleado> jcbEmpleado;
     private javax.swing.JComboBox<String> jcbHora;
     private javax.swing.JComboBox<String> jcbMinuto;
-    private javax.swing.JComboBox<String> jcbServicios;
+    private javax.swing.JComboBox<Servicio> jcbServicios;
     private com.toedter.calendar.JDateChooser jdcFecha;
     private javax.swing.JTextField jtfAdelantado;
     private javax.swing.JTextField jtfTelefono;
