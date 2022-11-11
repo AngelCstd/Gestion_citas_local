@@ -7,3 +7,6 @@
 -Crear un algoritmo que cuente las compras de los clientes VIP y asi mostrar cuando cada cliente tenga 10 compras para asi poder darle una promocion especial.
 
 -Crear un algoritmo que deje poner promociones y guardarlas en la base de datos
+
+
+##AUN NO ESTA TERMINADO, QUIERO AGREGARLO CON UNA API
